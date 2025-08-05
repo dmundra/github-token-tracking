@@ -28,7 +28,7 @@ if ($curl->error) {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   <title>NSF PR Test Gauges</title>
+   <title>GitHub Token Tracking</title>
    <script src="https://www.gstatic.com/charts/loader.js"></script>
    <script>
       // https://developers.google.com/chart/interactive/docs/gallery/gauge
@@ -55,7 +55,7 @@ if ($curl->error) {
         chart.draw(data, options);
 
         setInterval(function() {
-          fetch('/nsf-pr-test-gauges/github-requests.php', options)
+          fetch('github-requests.php', options)
             .then(response => response.json())
             .then(body => {
               data.setValue(0, 1, body.used);
@@ -67,7 +67,7 @@ if ($curl->error) {
     </script>
   </head>
   <body>
-    <h1>NSF PR Test Gauges</h1>
+    <h1>GitHub Token Tracking</h1>
     <div id="chart_div" style="width: 800px; height: 240px;"></div>
     <p id="reset"><?php echo 'Requests reset by ' . $reset; ?></p>
   </body>
